@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'pages/login.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -16,21 +18,94 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'App do Dudu'),
+      //home: const MyHomePageStatefulWidget(title: 'App do Dudu'),
+      // home: const HomePage(),
+      home: LoginPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+Image _imagemCao(){
+
+  return Image.asset('../assets/img/cao.jpg',
+    // width: 350,
+    // height: 350,
+    // fit: BoxFit.cover,
+    fit: BoxFit.fill,
+  );
+}
+
+class HomePage extends StatelessWidget{
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text('App do Dudu'),
+        ),
+        drawer: Drawer(),
+        body: Container(
+          color: Colors.white,
+          child: Center(
+            child: _imagemCao(),
+          ),
+        ),
+        // body: ElevatedButton(
+        //   onPressed: (){},
+        //   child: Text('Press here'),
+        // ),
+        // body: Align(
+        //   alignment: Alignment.center,
+        //   child: Container(
+        //     width: 150,
+        //     child: TextField(
+        //       decoration: InputDecoration(labelText: 'Hello World'),
+        //       style: TextStyle(color: Colors.purple, fontSize: 20),
+        //     ),
+        //   ),
+        // ),
+        // body: Center(
+        //   child: Column(
+        //     mainAxisAlignment: MainAxisAlignment.center,
+        //     children: <Widget>[
+        //       const Text(
+        //         'Você apertou o botão tantas vezes:',
+        //       ),
+        //       Text(""
+        //         //'$_counter',
+        //         //style: Theme.of(context).textTheme.headlineMedium,
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: <BottomNavigationBarItem> [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home'
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Minha conta'
+            ),
+          ],
+        )// This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class MyHomePageStatefulWidget extends StatefulWidget {
+  const MyHomePageStatefulWidget({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePageStatefulWidget> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePageStatefulWidget> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -47,12 +122,13 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
+      drawer: Drawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Você apertou o botão tantas vezes:',
             ),
             Text(
               '$_counter',
@@ -65,7 +141,19 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem> [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home'
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Minha conta'
+          ),
+        ],
+      )// This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
