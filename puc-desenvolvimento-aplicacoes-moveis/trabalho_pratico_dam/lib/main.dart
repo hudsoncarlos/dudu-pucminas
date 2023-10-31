@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trabalho_pratico_dam/menu/menu.dart';
 
 import 'pages/login.dart';
 
@@ -26,7 +27,6 @@ class MyApp extends StatelessWidget {
 }
 
 Image _imagemCao(){
-
   return Image.asset('../assets/img/cao.jpg',
     // width: 350,
     // height: 350,
@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget{
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text('App do Dudu'),
         ),
-        drawer: Drawer(),
+        drawer: NavDrawer(),
         body: Container(
           color: Colors.white,
           child: Center(
