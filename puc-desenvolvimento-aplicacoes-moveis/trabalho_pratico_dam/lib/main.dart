@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:trabalho_pratico_dam/menu/menu.dart';
 
+import 'package:flutter/material.dart';
+import 'menu/menu_footer.dart';
+import 'menu/menu_lateral.dart';
 import 'pages/login.dart';
 
 void main() {
@@ -42,10 +43,10 @@ class HomePage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text('App do Dudu'),
+            backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+            title: const Text('App do Dudu')
         ),
-        drawer: NavDrawer(),
+        drawer: const MenuLateralDuDudu(),
         body: Container(
           color: Colors.white,
           child: Center(
@@ -80,18 +81,7 @@ class HomePage extends StatelessWidget{
         //     ],
         //   ),
         // ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: <BottomNavigationBarItem> [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home'
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Minha conta'
-            ),
-          ],
-        )// This trailing comma makes auto-formatting nicer for build methods.
+        bottomNavigationBar: const BarraDeNavegacaoDuDudu()
     );
   }
 }
@@ -122,7 +112,7 @@ class _MyHomePageState extends State<MyHomePageStatefulWidget> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      drawer: Drawer(),
+      drawer: const Drawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -142,18 +132,7 @@ class _MyHomePageState extends State<MyHomePageStatefulWidget> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem> [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Minha conta'
-          ),
-        ],
-      )// This trailing comma makes auto-formatting nicer for build methods.
+      bottomNavigationBar: const BarraDeNavegacaoDuDudu()
     );
   }
 }

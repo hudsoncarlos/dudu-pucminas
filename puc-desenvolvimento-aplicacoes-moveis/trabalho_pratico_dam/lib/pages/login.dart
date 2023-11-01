@@ -1,15 +1,17 @@
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
 import '../main.dart';
-import 'reset-password.dart';
+import 'reset_password.dart';
 import 'signup.dart';
 
 class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container (
-        padding: EdgeInsets.only(
+        padding: const EdgeInsets.only(
           top: 60,
           left: 40,
           right: 40,
@@ -22,12 +24,12 @@ class LoginPage extends StatelessWidget {
               height: 200,
               child: Image.asset("../assets/img/arvore-branca-gondor.png"),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             TextFormField(
               keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText:"E-mail",
                 labelStyle:TextStyle(
                   color:Colors.black38,
@@ -35,17 +37,17 @@ class LoginPage extends StatelessWidget {
                   fontSize:20,
                 ),
               ),
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize:20,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height:10,
             ),
             TextFormField(
               keyboardType:TextInputType.text,
               obscureText: true,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText:"Senha",
                 labelStyle: TextStyle(
                   color: Colors.black38,
@@ -53,13 +55,13 @@ class LoginPage extends StatelessWidget {
                   fontSize: 20,
                 ),
               ),
-              style:TextStyle(fontSize: 20),
+              style:const TextStyle(fontSize: 20),
             ),
             Container(
               height:40,
               alignment: Alignment.centerRight,
               child: TextButton(
-                child: Text(
+                child: const Text(
                   "Recuperar Senha",
                 ),
                 onPressed: (){
@@ -72,7 +74,7 @@ class LoginPage extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Container(
@@ -83,19 +85,17 @@ class LoginPage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         "Entrar",
                         style:TextStyle(
                           fontSize:20,
                         ),
                         textAlign: TextAlign.left,
                       ),
-                      Container(
-                        child: SizedBox(
-                          child: Image.asset("../assets/img/tolkien_monogram.png"),
-                          height: 150,
-                          width:40,
-                        ),
+                      SizedBox(
+                        height: 150,
+                        width:40,
+                        child: Image.asset("../assets/img/tolkien_monogram.png"),
                       ),
                     ],
                   ),
@@ -103,24 +103,24 @@ class LoginPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomePage(),
+                        builder: (context) => const HomePage(),
                       ),
                     )
                   },
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            SizedBox(
+            const SizedBox(
               height:10,
             ),
             Container(
                 height: 40,
                 alignment: Alignment.center,
                 child: ElevatedButton(
-                  child: Text(
+                  child: const Text(
                     "Cadastre-se",
                     textAlign: TextAlign.center,
                   ),

@@ -8,13 +8,13 @@ class ResetPasswordPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor:Colors.white,
          leading: IconButton(
-         icon: Icon(Icons.arrow_back),
+         icon: const Icon(Icons.arrow_back),
          color:Colors.black38,
          onPressed:()=>Navigator.pop(context, false),
         ),
       ),
       body: Container(
-        padding:EdgeInsets.only(
+        padding:const EdgeInsets.only(
           top:60,
           left: 40,
           right: 40
@@ -27,10 +27,10 @@ class ResetPasswordPage extends StatelessWidget {
              height: 200,
              child: Image.asset("../assets/img/chave_de_erebor.jpg"),
             ),
-            SizedBox(
+            const SizedBox(
               height:20 ,
             ),
-            Text(
+            const Text(
              "Esqueceu sua senha?",
              style: TextStyle(
                fontSize:32,
@@ -38,10 +38,10 @@ class ResetPasswordPage extends StatelessWidget {
                  ),
                  textAlign: TextAlign.center,
             ),
-             SizedBox(
+             const SizedBox(
                height: 10,
              ),
-             Text(
+             const Text(
                "Por favor, informe o e-mail associado a sua conta que enviaremos um link para o mesmo com as intruções para a restauração de sua senha.",
                style: TextStyle(
                  fontSize: 16,
@@ -49,12 +49,12 @@ class ResetPasswordPage extends StatelessWidget {
                ),
                textAlign: TextAlign.center,
              ),
-             SizedBox(
+             const SizedBox(
                height: 20,
              ),
              TextFormField(
                keyboardType:TextInputType.emailAddress,
-               decoration:InputDecoration(
+               decoration:const InputDecoration(
                  labelText: "E-mail",
                  labelStyle: TextStyle(
                    color:Colors.black38,
@@ -62,11 +62,11 @@ class ResetPasswordPage extends StatelessWidget {
                    fontSize:20,
                     ),
                ),
-               style:TextStyle(
+               style:const TextStyle(
                  fontSize: 20,
                  ),
              ),
-             SizedBox(
+             const SizedBox(
                height: 20,
              ),
             Container(
@@ -77,7 +77,7 @@ class ResetPasswordPage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         "Cadastrar",
                         style: TextStyle(
                           fontSize:20,
@@ -97,7 +97,7 @@ class ResetPasswordPage extends StatelessWidget {
                 ),
               ),
             ),
-             SizedBox(
+             const SizedBox(
                height: 20,
              ),
          ],
