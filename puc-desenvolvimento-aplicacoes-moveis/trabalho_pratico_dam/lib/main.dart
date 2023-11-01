@@ -53,34 +53,6 @@ class HomePage extends StatelessWidget{
             child: _imagemCao(),
           ),
         ),
-        // body: ElevatedButton(
-        //   onPressed: (){},
-        //   child: Text('Press here'),
-        // ),
-        // body: Align(
-        //   alignment: Alignment.center,
-        //   child: Container(
-        //     width: 150,
-        //     child: TextField(
-        //       decoration: InputDecoration(labelText: 'Hello World'),
-        //       style: TextStyle(color: Colors.purple, fontSize: 20),
-        //     ),
-        //   ),
-        // ),
-        // body: Center(
-        //   child: Column(
-        //     mainAxisAlignment: MainAxisAlignment.center,
-        //     children: <Widget>[
-        //       const Text(
-        //         'Você apertou o botão tantas vezes:',
-        //       ),
-        //       Text(""
-        //         //'$_counter',
-        //         //style: Theme.of(context).textTheme.headlineMedium,
-        //       ),
-        //     ],
-        //   ),
-        // ),
         bottomNavigationBar: const BarraDeNavegacaoDuDudu()
     );
   }

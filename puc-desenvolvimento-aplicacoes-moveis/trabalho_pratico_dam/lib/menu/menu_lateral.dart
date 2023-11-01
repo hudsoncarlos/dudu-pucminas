@@ -1,6 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:trabalho_pratico_dam/pages/about-page.dart';
+import 'package:trabalho_pratico_dam/pages/home_page.dart';
 import 'package:trabalho_pratico_dam/pages_LDDM05/text_field.dart';
+import '../main.dart';
 import '../pages_LDDM04/hello_world.dart';
 import '../pages_LDDM04/imagens.dart';
 import '../pages_LDDM05/widgets_stateful.dart';
@@ -24,6 +27,30 @@ class MenuLateralDuDudu extends StatelessWidget {
                 ),
             ),
             child: Text('', style: TextStyle(color: Colors.white, fontSize: 25)),
+          ),
+          ListTile(
+            leading: const Icon(Icons.home),
+            title: const Text('Home Page'),
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HomePage(),
+                ),
+              )
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.account_balance),
+            title: const Text('About'),
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AboutPageDuDudu(),
+                ),
+              )
+            },
           ),
           ListTile(
             leading: const Icon(Icons.battery_0_bar),
@@ -85,21 +112,21 @@ class MenuLateralDuDudu extends StatelessWidget {
               )
             },
           ),
-          ListTile(
-            leading: const Icon(Icons.verified_user),
-            title: const Text('Profile'),
-            onTap: () => {Navigator.of(context).pop()},
-          ),
-          ListTile(
-            leading: const Icon(Icons.settings),
-            title: const Text('Settings'),
-            onTap: () => {Navigator.of(context).pop()},
-          ),
-          ListTile(
-            leading: const Icon(Icons.border_color),
-            title: const Text('Feedback'),
-            onTap: () => {Navigator.of(context).pop()},
-          ),
+          // ListTile(
+          //   leading: const Icon(Icons.verified_user),
+          //   title: const Text('Profile'),
+          //   onTap: () => {Navigator.of(context).pop()},
+          // ),
+          // ListTile(
+          //   leading: const Icon(Icons.settings),
+          //   title: const Text('Settings'),
+          //   onTap: () => {Navigator.of(context).pop()},
+          // ),
+          // ListTile(
+          //   leading: const Icon(Icons.border_color),
+          //   title: const Text('Feedback'),
+          //   onTap: () => {Navigator.of(context).pop()},
+          // ),
           ListTile(
             leading: const Icon(Icons.exit_to_app),
             title: const Text('Logout'),

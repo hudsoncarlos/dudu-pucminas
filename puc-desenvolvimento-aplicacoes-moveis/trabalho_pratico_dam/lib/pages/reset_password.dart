@@ -78,7 +78,7 @@ class ResetPasswordPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       const Text(
-                        "Cadastrar",
+                        "Recuperar",
                         style: TextStyle(
                           fontSize:20,
                         ),
