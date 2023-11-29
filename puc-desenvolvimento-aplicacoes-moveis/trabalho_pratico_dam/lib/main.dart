@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'menu/menu_footer.dart';
 import 'menu/menu_lateral.dart';
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
       ),
       //home: const MyHomePageStatefulWidget(title: 'App do Dudu'),
       // home: const HomePage(),
-      home: LoginPage(),
+      home: const LoginPage(),
     );
   }
 }
@@ -37,7 +36,7 @@ Image _imagemCao(){
 }
 
 class HomePage extends StatelessWidget{
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context){

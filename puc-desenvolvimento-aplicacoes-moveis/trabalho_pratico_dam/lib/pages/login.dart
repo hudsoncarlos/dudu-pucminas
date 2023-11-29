@@ -87,8 +87,8 @@ class LoginPage extends StatelessWidget {
                     children: <Widget>[
                       const Text(
                         "Entrar",
-                        style:TextStyle(
-                          fontSize:20,
+                        style: TextStyle(
+                          fontSize: 20,
                         ),
                         textAlign: TextAlign.left,
                       ),

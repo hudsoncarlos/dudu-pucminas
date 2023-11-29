@@ -4,6 +4,7 @@ import 'package:trabalho_pratico_dam/pages/about-page.dart';
 import 'package:trabalho_pratico_dam/pages/home_page.dart';
 import 'package:trabalho_pratico_dam/pages_LDDM05/text_field.dart';
 import '../main.dart';
+import '../pages/login.dart';
 import '../pages_LDDM04/hello_world.dart';
 import '../pages_LDDM04/imagens.dart';
 import '../pages_LDDM05/widgets_stateful.dart';
@@ -130,7 +131,14 @@ class MenuLateralDuDudu extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.exit_to_app),
             title: const Text('Logout'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginPage(),
+                ),
+              )
+            },
           ),
         ],
       ),

@@ -21,7 +21,7 @@ class _HomePageDuDudu extends State<HomePageDuDudu> {
             title: const Text('App do Dudu')
         ),
         drawer: const MenuLateralDuDudu(),
-        body: IndexedStack(index: _currentIndex, children: [HomePageDuDudu(), AboutPageDuDudu()]),
+        body: IndexedStack(index: _currentIndex, children: const [HomePageDuDudu(), AboutPageDuDudu()]),
         bottomNavigationBar: BottomNavigationBar(
             currentIndex: _currentIndex,
             items: const <BottomNavigationBarItem> [

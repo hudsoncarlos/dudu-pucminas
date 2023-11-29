@@ -7,7 +7,7 @@ class AppBarDuDudu extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('App do Dudu')
+        title: const Text('App do Dudu')
     );
   }
 }

@@ -18,7 +18,7 @@ class _WidgetsStatefulDuDudu extends State<WidgetsStatefulDuDudu> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Pensamento do dia"),
+          title: const Text("Pensamento do dia"),
         ),
         drawer: const MenuLateralDuDudu(),
         body: Container(
@@ -31,10 +31,10 @@ class _WidgetsStatefulDuDudu extends State<WidgetsStatefulDuDudu> {
                           _frase = "Substitua pensamentos negativos por pensamentos positivos.";
                         });
                       },
-                      child: Text("Clique aqui")
+                      child: const Text("Clique aqui")
                   ),
                   Padding(
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     child: Text("Frase: $_frase"),
                   )
                 ]

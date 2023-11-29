@@ -108,7 +108,7 @@ class SignupPage extends StatelessWidget {
               height: 40,
               alignment: Alignment.center,
               child: ElevatedButton(
-                child:Text(
+                child: const Text(
                   "Cancelar",
                   textAlign: TextAlign.center,
                 ),

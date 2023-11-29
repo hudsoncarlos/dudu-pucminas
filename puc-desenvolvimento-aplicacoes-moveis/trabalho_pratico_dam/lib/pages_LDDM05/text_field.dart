@@ -3,6 +3,7 @@ import '../menu/menu_footer.dart';
 import '../menu/menu_lateral.dart';
 
 class TextFieldDuDudu extends StatefulWidget{
+  const TextFieldDuDudu({super.key});
 
   @override
   _TextFieldDuDudu createState() => _TextFieldDuDudu();
@@ -19,7 +20,7 @@ class _TextFieldDuDudu extends State<TextFieldDuDudu> {
       drawer: const MenuLateralDuDudu(),
       body: ListView(
         children: <Widget>[
-          Padding(
+          const Padding(
               padding: EdgeInsets.all(32),
               child: TextField(
                 keyboardType: TextInputType.text,
@@ -30,7 +31,7 @@ class _TextFieldDuDudu extends State<TextFieldDuDudu> {
                 maxLength: 20,
               ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(32),
             child: TextField(
               keyboardType: TextInputType.number,
@@ -41,7 +42,7 @@ class _TextFieldDuDudu extends State<TextFieldDuDudu> {
               maxLength: 20,
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(32),
             child: TextField(
               keyboardType: TextInputType.emailAddress,
@@ -52,7 +53,7 @@ class _TextFieldDuDudu extends State<TextFieldDuDudu> {
               maxLength: 20,
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(32),
             child: TextField(
               keyboardType: TextInputType.datetime,
@@ -63,7 +64,7 @@ class _TextFieldDuDudu extends State<TextFieldDuDudu> {
               maxLength: 20,
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(32),
             child: TextField(
               keyboardType: TextInputType.datetime,
@@ -77,10 +78,10 @@ class _TextFieldDuDudu extends State<TextFieldDuDudu> {
           ),
           TextField(
             keyboardType: TextInputType.datetime,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
                 labelText: "Recuperar o valor digitado com 'onChanged', 'onSubmitted', 'onPressed',  "
             ),
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 30,
                 color: Colors.red
             ),
