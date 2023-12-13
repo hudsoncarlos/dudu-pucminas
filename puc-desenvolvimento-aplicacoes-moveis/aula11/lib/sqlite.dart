@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _recuperarBancoDados() async{
     final caminhoBD = await getDatabasesPath();
-    final localBD = join(caminhoBD, "banco.db");
+    final localBD = ""; //JOIN(caminhoBD, "banco.db");
     var retorno = await openDatabase(
         localBD,
         version: 1,

@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Primeiro Trabalho Prático - Desenvolvimento de Aplicações Móveis',
+      title: 'Trabalho Prático 1 e 2 - Desenvolvimento de Aplicações Móveis',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
       //home: const MyHomePageStatefulWidget(title: 'App do Dudu'),
@@ -51,8 +51,8 @@ class HomePage extends StatelessWidget{
           child: Center(
             child: _imagemCao(),
           ),
-        ),
-        bottomNavigationBar: const BarraDeNavegacaoDuDudu()
+        )
+        //bottomNavigationBar: const BarraDeNavegacaoDuDudu()
     );
   }
 }

@@ -1,28 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -79,15 +57,15 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: <Widget>[
               TextField(
-                decoration: const InputDecoration(
-                  labelText: "Digíte o nome: ",
-                ),
-                onSubmitted: (String value) {
-                  setState(() {
-                    _nomeDigitado = value;
-                  });
-                  print("Texto digitado onSubmitted: " + value);
-                }
+                  decoration: const InputDecoration(
+                    labelText: "Digíte o nome: ",
+                  ),
+                  onSubmitted: (String value) {
+                    setState(() {
+                      _nomeDigitado = value;
+                    });
+                    print("Texto digitado onSubmitted: " + value);
+                  }
               ),
               const SizedBox(height: 16,),
               Row(
