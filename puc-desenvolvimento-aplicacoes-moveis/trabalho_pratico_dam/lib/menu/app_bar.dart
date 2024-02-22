@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 
 class AppBarDuDudu extends StatelessWidget {
+  const AppBarDuDudu({super.key});
+
 
   @override
   Widget build(BuildContext context) {

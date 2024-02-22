@@ -4,6 +4,8 @@ import '../menu/menu_lateral.dart';
 import '../menu/menu_footer.dart';
 
 class WidgetsStatefulDuDudu extends StatefulWidget {
+  const WidgetsStatefulDuDudu({super.key});
+
 
   @override
   _WidgetsStatefulDuDudu createState() => _WidgetsStatefulDuDudu();

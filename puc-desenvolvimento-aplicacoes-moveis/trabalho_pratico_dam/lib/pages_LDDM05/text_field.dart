@@ -86,10 +86,10 @@ class _TextFieldDuDudu extends State<TextFieldDuDudu> {
                 color: Colors.red
             ),
             onChanged: (String value) {
-              print("Texto digitado onChanged: " + value);
+              print("Texto digitado onChanged: $value");
             },
             onSubmitted: (String value) {
-              print("Texto digitado onSubmitted: " + value);
+              print("Texto digitado onSubmitted: $value");
             },
           )
         ],

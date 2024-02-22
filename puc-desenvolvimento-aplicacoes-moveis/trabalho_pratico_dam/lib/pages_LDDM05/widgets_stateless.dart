@@ -8,11 +8,11 @@ class WidgetsStatelessDuDudu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _titulo = "Pensamentos Positivos";
+    var titulo = "Pensamentos Positivos";
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(_titulo),
+          title: Text(titulo),
         ),
         drawer: const MenuLateralDuDudu(),
         body: ListView(

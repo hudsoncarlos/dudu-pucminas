@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'login.dart';
+
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
 
@@ -68,9 +70,8 @@ class _SignupPage extends State<SignupPage> {
                       SizedBox(height: 150, width: 40, child: Image.asset("../assets/img/tolkien_monogram.png")),
                     ],
                   ),
-                  onPressed: () async {
-                    await _SalvarDadosFormulario(context);
-                    Navigator.pop(context, false);
+                  onPressed: () {
+                    _SalvarDadosFormulario(context);
                   },
                 ),
               ),
@@ -94,7 +95,7 @@ class _SignupPage extends State<SignupPage> {
   }
 }
 
-Future<void> _SalvarDadosFormulario(BuildContext context) async{
+void _SalvarDadosFormulario(BuildContext context) async{
   String email = _emailController.text;
   String senha = _senhaController.text;
 
@@ -104,17 +105,20 @@ Future<void> _SalvarDadosFormulario(BuildContext context) async{
   Widget button;
 
   if(!await _ValidaChaveExistente(key)){
-    _SalvarDados(key, valor);
+    await _SalvarDados(key, valor);
 
     button = TextButton(
-      onPressed: () async {
-        Navigator.pop(context, false);
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const LoginPage()),
+        );
       },
       child: const Text('OK'),
     );
 
     alert = AlertDialog(
-      title: const Text("Informação"),
+      title: const Text(":)"),
       content: const Text("Cadastro com sucesso."),
       actions: [button],
     );
@@ -123,7 +127,7 @@ Future<void> _SalvarDadosFormulario(BuildContext context) async{
     print("Dados já cadastrados.");
 
     button = TextButton(
-      onPressed: () async {
+      onPressed: () {
         Navigator.of(context).pop();
       },
       child: const Text('Fechar'),
@@ -138,7 +142,7 @@ Future<void> _SalvarDadosFormulario(BuildContext context) async{
     //_ExibirAlerta(context, "Atenção", "Dados já cadastrados.");
   }
 
-  _ShowDialog(context, alert);
+  await _ShowDialog(context, alert);
 }
 
 Future<void> _ShowDialog(BuildContext context, AlertDialog alert) async {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ResetPasswordPage extends StatelessWidget {
+  const ResetPasswordPage({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -86,9 +88,9 @@ class ResetPasswordPage extends StatelessWidget {
                       ),
                       Container(
                         child:SizedBox(
-                          child: Image.asset("../assets/img/tolkien_monogram.png"),
                           height: 150,
                           width:40,
+                          child: Image.asset("../assets/img/tolkien_monogram.png"),
                         ),
                       ),
                     ],

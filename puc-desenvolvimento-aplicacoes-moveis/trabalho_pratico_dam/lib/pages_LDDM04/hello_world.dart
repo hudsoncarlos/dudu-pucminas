@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../menu/menu_lateral.dart';
-import '../menu/menu_footer.dart';
 
 class HelloWorldDuDudu extends StatelessWidget {
   const HelloWorldDuDudu({super.key});

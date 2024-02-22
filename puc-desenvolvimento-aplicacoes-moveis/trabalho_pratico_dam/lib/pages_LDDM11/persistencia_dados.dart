@@ -12,6 +12,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+
   //var _textoSalvo;
   var _nomeDigitado = " - ";
 
@@ -23,25 +24,24 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    String textoSalvo;
 
-    var _textoSalvo;
-
-    void _salvarDados() async{
+    void salvarDados() async {
       String valorDigitado = _nomeDigitado;
       final perfs = await SharedPreferences.getInstance();
       await perfs.setString("nome", valorDigitado);
       print("Operação salva: $valorDigitado");
     }
 
-    void _RecuperarDados() async{
+    void RecuperarDados() async {
       final perfs = await SharedPreferences.getInstance();
       setState(() {
-        _textoSalvo = perfs.getString("nome") ?? "Sem valor";
+        textoSalvo = perfs.getString("nome") ?? "Sem valor";
       });
-      print("Operação recuperar: $_textoSalvo");
+      //print("Operação recuperar: $textoSalvo");
     }
 
-    void _removerDados() async{
+    void removerDados() async {
       final perfs = await SharedPreferences.getInstance();
       perfs.remove("nome");
       print("Operação remover");
@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         body: Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             children: <Widget>[
               TextField(
@@ -64,30 +64,38 @@ class _MyHomePageState extends State<MyHomePage> {
                     setState(() {
                       _nomeDigitado = value;
                     });
-                    print("Texto digitado onSubmitted: " + value);
-                  }
+                    print("Texto digitado onSubmitted: $value");
+                  }),
+              const SizedBox(
+                height: 16,
               ),
-              const SizedBox(height: 16,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  ElevatedButton( onPressed: _salvarDados, child: const Text("Salvar")),
-                  const SizedBox(width: 16,),
-                  ElevatedButton(onPressed: _RecuperarDados, child: const Text("Recuperar")),
-                  const SizedBox(width: 16,),
-                  ElevatedButton(onPressed: _removerDados, child: const Text("Remover")),
+                  ElevatedButton(
+                      onPressed: salvarDados, child: const Text("Salvar")),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  ElevatedButton(
+                      onPressed: RecuperarDados,
+                      child: const Text("Recuperar")),
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  ElevatedButton(
+                      onPressed: removerDados, child: const Text("Remover")),
                 ],
               ),
-              const SizedBox(width: 16,),
+              const SizedBox(
+                width: 16,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(_nomeDigitado)
-                ],
+                children: <Widget>[Text(_nomeDigitado)],
               ),
             ],
           ),
-        )
-    );
+        ));
   }
 }

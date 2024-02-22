@@ -49,7 +49,7 @@ class LoginPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ResetPasswordPage(),
+                      builder: (context) => const ResetPasswordPage(),
                     ),
                   );
                 },
@@ -81,7 +81,7 @@ class LoginPage extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => HomePageDuDudu(result)),
+                            MaterialPageRoute(builder: (context) => const HomePageDuDudu()),
                           );
                         },
                         child: const Text('OK'),
