@@ -1,14 +1,13 @@
-
 import 'package:flutter/material.dart';
 import 'package:trabalho_pratico_dam/pages/about-page.dart';
-import 'package:trabalho_pratico_dam/pages/home_page.dart';
 import 'package:trabalho_pratico_dam/pages_LDDM05/text_field.dart';
-import '../main.dart';
+import '../pages/home_page.dart';
 import '../pages/login.dart';
 import '../pages_LDDM04/hello_world.dart';
 import '../pages_LDDM04/imagens.dart';
 import '../pages_LDDM05/widgets_stateful.dart';
 import '../pages_LDDM05/widgets_stateless.dart';
+import '../pages_LDDM12/midias.dart';
 
 class MenuLateralDuDudu extends StatelessWidget {
   const MenuLateralDuDudu({super.key});
@@ -21,13 +20,13 @@ class MenuLateralDuDudu extends StatelessWidget {
         children: <Widget>[
           const DrawerHeader(
             decoration: BoxDecoration(
-                color: Colors.green,
-                image: DecorationImage(
-                    fit: BoxFit.contain,
-                    image: AssetImage('../assets/img/tolkien_monogram.png')
-                ),
+              color: Colors.green,
+              image: DecorationImage(
+                  fit: BoxFit.contain,
+                  image: AssetImage('../assets/img/tolkien_monogram.png')),
             ),
-            child: Text('', style: TextStyle(color: Colors.white, fontSize: 25)),
+            child:
+                Text('', style: TextStyle(color: Colors.white, fontSize: 25)),
           ),
           ListTile(
             leading: const Icon(Icons.home),
@@ -36,7 +35,7 @@ class MenuLateralDuDudu extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const HomePage(),
+                  builder: (context) => const HomePageDuDudu(),
                 ),
               )
             },
@@ -96,7 +95,7 @@ class MenuLateralDuDudu extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => WidgetsStatefulDuDudu(),
+                  builder: (context) => const WidgetsStatefulDuDudu(),
                 ),
               )
             },
@@ -108,26 +107,23 @@ class MenuLateralDuDudu extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => TextFieldDuDudu(),
+                  builder: (context) => const TextFieldDuDudu(),
                 ),
               )
             },
           ),
-          // ListTile(
-          //   leading: const Icon(Icons.verified_user),
-          //   title: const Text('Profile'),
-          //   onTap: () => {Navigator.of(context).pop()},
-          // ),
-          // ListTile(
-          //   leading: const Icon(Icons.settings),
-          //   title: const Text('Settings'),
-          //   onTap: () => {Navigator.of(context).pop()},
-          // ),
-          // ListTile(
-          //   leading: const Icon(Icons.border_color),
-          //   title: const Text('Feedback'),
-          //   onTap: () => {Navigator.of(context).pop()},
-          // ),
+          ListTile(
+            leading: const Icon(Icons.surround_sound),
+            title: const Text('Mídias - Sons'),
+            onTap: () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MidiaSonsDuDudu(),
+                ),
+              )
+            },
+          ),
           ListTile(
             leading: const Icon(Icons.exit_to_app),
             title: const Text('Logout'),
@@ -135,7 +131,7 @@ class MenuLateralDuDudu extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => LoginPage(),
+                  builder: (context) => const LoginPage(),
                 ),
               )
             },

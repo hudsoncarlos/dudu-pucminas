@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sqflite/sqflite.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,86 +34,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-
-  get _nomeController => null;
-
-  get _senhaController => null;
-
-  _recuperarBancoDados() async{
-    final caminhoBD = await getDatabasesPath();
-    final localBD = join(caminhoBD, "banco.db");
-    var retorno = await openDatabase(
-        localBD,
-        version: 1,
-        onCreate: (db, dbVersaoRecente){
-          String sql = "CREATE TABLE usuarios (id INTERGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, idade INTERGER)";
-          db.execute(sql);
-        }
-    );
-    print("Aberto ${retorno.isOpen}");
-  }
-
-  _listarUsuarios() async{
-    Database bd = await _recuperarBancoDados();
-    String sql = "SELECT * FROM usuarios";
-    List usuarios = await bd.rawQuery(sql);
-    for(var usuario in usuarios){
-      print(" id: $usuario['id'] nome: $usuario['nome'] idade: $usuario['idade'] ");
-    }
-  }
-
-  _getUsuario(int id) async{
-    Database bd = await _recuperarBancoDados();
-    List usuarios = await bd.query(
-        "usuarios",
-        columns: ["id", "nome", "idade"],
-        where: "id = ?",
-        whereArgs: [id]
-    );
-    for(var usuario in usuarios){
-      print(" id: $usuario['id'] nome: $usuario['nome'] idade: $usuario['idade'] ");
-    }
-  }
-
-  _excluirUsuario(int id) async{
-    Database bd = await _recuperarBancoDados();
-    int retorno1 = await bd.delete(
-        "usuarios",
-        where: "id = ?",
-        whereArgs: [id]
-    );
-    int retorno2 = await bd.delete(
-        "usuarios",
-        where: "nome = ? AND idade = ?",
-        whereArgs: ["Raquel Ribeiro", id]
-    );
-    print("Itens excluidos: $retorno1");
-    print("Itens excluidos: $retorno2");
-  }
-
-  _atualizarUsuario(int id) async{
-    Database bd = await _recuperarBancoDados();
-    Map<String, dynamic> dadosUsuario = {
-      "nome" : "Antonio Pedro",
-      "idade" : 35
-    };
-    int retorno = await bd.update(
-        "usuarios", dadosUsuario,
-        where: "id = ?",
-        whereArgs: [id]
-    );
-    print("Itens atualizados: $retorno ");
-  }
-
-  _salvarDados(String nome, int idade) async{
-    Database bd = await _recuperarBancoDados();
-    Map<String, dynamic> dadosUsuario = {
-      "nome" : nome,
-      "idade" : idade
-    };
-    int id = await bd.insert("usuarios", dadosUsuario);
-    print("Salvo: $id ");
-  }
+  //var _textoSalvo;
+  var _nomeDigitado = " - ";
 
   void _incrementCounter() {
     setState(() {
@@ -125,6 +46,29 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
+    var _textoSalvo;
+
+    void _salvarDados() async{
+      String valorDigitado = _nomeDigitado;
+      final perfs = await SharedPreferences.getInstance();
+      await perfs.setString("nome", valorDigitado);
+      print("Operação salva: $valorDigitado");
+    }
+
+    void _RecuperarDados() async{
+      final perfs = await SharedPreferences.getInstance();
+      setState(() {
+        _textoSalvo = perfs.getString("nome") ?? "Sem valor";
+      });
+      print("Operação recuperar: $_textoSalvo");
+    }
+
+    void _removerDados() async{
+      final perfs = await SharedPreferences.getInstance();
+      perfs.remove("nome");
+      print("Operação remover");
+    }
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -134,22 +78,33 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.all(16),
           child: Column(
             children: <Widget>[
-              TextField(decoration: const InputDecoration(labelText: "Digíte o nome: ",), controller: _nomeController,),
-              const SizedBox(height: 16,),
-              TextField(decoration: const InputDecoration(labelText: "Digíte a senha: ",), controller: _senhaController),
+              TextField(
+                decoration: const InputDecoration(
+                  labelText: "Digíte o nome: ",
+                ),
+                onSubmitted: (String value) {
+                  setState(() {
+                    _nomeDigitado = value;
+                  });
+                  print("Texto digitado onSubmitted: " + value);
+                }
+              ),
               const SizedBox(height: 16,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  ElevatedButton( onPressed: _salvarDados(_nomeController, 0), child: const Text("Salvar um usuário")),
+                  ElevatedButton( onPressed: _salvarDados, child: const Text("Salvar")),
                   const SizedBox(width: 16,),
-                  ElevatedButton(onPressed: _listarUsuarios, child: const Text("Listar todos usuários")),
+                  ElevatedButton(onPressed: _RecuperarDados, child: const Text("Recuperar")),
                   const SizedBox(width: 16,),
-                  ElevatedButton(onPressed: _getUsuario(1), child: const Text("Buscar um usuário")),
-                  const SizedBox(width: 16,),
-                  ElevatedButton(onPressed: _atualizarUsuario(1), child: const Text("Atualizar um usuário")),
-                  const SizedBox(width: 16,),
-                  ElevatedButton(onPressed: _excluirUsuario(1), child: const Text("Excluir usuário")),
+                  ElevatedButton(onPressed: _removerDados, child: const Text("Remover")),
+                ],
+              ),
+              const SizedBox(width: 16,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(_nomeDigitado)
                 ],
               ),
             ],
