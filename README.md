@@ -1,5 +1,6 @@
-# dudu-ICEI-PUC-Minas-PBR-SI-pbr-si-2021-2-proj-web-materiais-reciclaveis
-Repositório criado guar projeto criado ma disciplina de Projeto Web onde criamos um projeto de materiais recicláveis.
+# Repositório dudu-pucminas
+
+Repositório dedicado aos projetos e atividades desenvolvidos durante o curso de Sistemas de Informação na PUC Minas. Aqui você encontrará trabalhos práticos e projetos que refletem o aprendizado e a criatividade dos alunos ao longo do curso.
 
 ## Descrição
 Bem-vindo ao repositório de projetos e atividades do curso de Sistemas de Informação da PUC Minas! Este repositório foi criado para armazenar e compartilhar os trabalhos práticos, projetos e atividades desenvolvidos ao longo do curso de Sistemas de Informação na Pontifícia Universidade Católica de Minas Gerais.
