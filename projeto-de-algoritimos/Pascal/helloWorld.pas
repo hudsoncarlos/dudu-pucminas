@@ -8,4 +8,9 @@ begin
     write('Nome: ');readln(nome);
     write('Cpf: ');readln(cpf);
     write('Idade: ');readln(idade);
+
+    writeln;    
+    writeln('Nome: ', nome);
+    writeln('Cpf: ', cpf);
+    writeln('Idade: ', idade);
 end.
